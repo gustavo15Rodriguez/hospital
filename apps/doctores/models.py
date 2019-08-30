@@ -1,8 +1,19 @@
 from django.db import models
 
 class Diagnostico(models.Model):
-    id_diagnostico = models.CharField(primary_key=True)
+    id_diagnostico = models.AutoField(primary_key=True)
+    descripcion = models.CharField(max_length=4 0)
+
+    def __str__(self):
+        return '{}'.format(self.descripcion)
+
+
+class HistoriaClinica(models.Model):
+    id_historia = models.AutoField(primary_key=True)
     descripcion = models.CharField(max_length=40)
+
+    def __str__(self):
+        return '{}'.format(self.descripcion)
 
 
 class Medico(models.Model):

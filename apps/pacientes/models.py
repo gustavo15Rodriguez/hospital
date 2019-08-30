@@ -1,5 +1,5 @@
 from django.db import models
-from apps.doctores.models import Medico, Diagnostico
+from apps.doctores.models import Medico, Diagnostico, HistoriaClinica
 
 class TarjetaVisita(models.Model):
     id_tarjeta = models.AutoField(primary_key=True)
@@ -13,7 +13,6 @@ class TarjetaVisita(models.Model):
 class Paciente(models.Model):
     id_paciente = models.AutoField(primary_key=True)
     numero_documento = models.CharField(max_length=40)
-    historia_clinica = models.CharField(max_length=40)
     nombre = models.CharField(max_length=40)
     apellidos = models.CharField(max_length=40)
     direccion_recidencia = models.CharField(max_length=40)
@@ -22,6 +21,9 @@ class Paciente(models.Model):
     tarjeta_paciente = models.ForeignKey(TarjetaVisita,on_delete=models.CASCADE, blank=True, null=True)
     doctor = models.ForeignKey(Medico, on_delete=models.CASCADE, blank=True, null=True)
     diagnostico = models.ForeignKey(Diagnostico, on_delete=models.CASCADE, blank=True, null=True)
+    historia_clinica = models.ForeignKey(HistoriaClinica, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return '{}{}'.format(self.nombre, self.apellidos)
+
+
