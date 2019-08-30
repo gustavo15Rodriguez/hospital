@@ -23,6 +23,7 @@ from django.urls import include
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^registro/', include('apps.usuarios.urls')),
+    url(r'^home/', include('apps.principal.urls')),
 
     #Recuperacion de Email
     url(r'^password_reset/done/', PasswordResetDoneView.as_view(), name='password_reset_done'),
