@@ -1,7 +1,7 @@
 from django.db import models
 
 class Diagnostico(models.Model):
-    id_diagnostico = models.CharField(primary_key=True)
+    id_diagnostico = models.CharField(primary_key=True, max_length=10)
     descripcion = models.CharField(max_length=40)
 
 
