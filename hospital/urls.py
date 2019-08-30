@@ -13,9 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url
+from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.auth.views import LoginView, logout_then_login, PasswordResetCompleteView, PasswordResetConfirmView, PasswordResetDoneView, PasswordResetView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+    #Recuperacion de Email
+    url(r'^password_reset/', PasswordResetView.as_view(), name='password_reset'),
+    url(r'^password_reset/done/', PasswordResetDoneView.as_view(), name='password_reset_done'),
+    url(r'^reset/(?P<uidb64>[0-9A-Za-z_ \-]+)/(?P<token>.+)/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    url(r'^reset/done/', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+
+    url(r'^logout/', logout_then_login, name='logout'),
+    url(r'^accounts/login/', LoginView.as_view(template_name='index.html'), name='login'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
