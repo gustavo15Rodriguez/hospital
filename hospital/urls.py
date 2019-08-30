@@ -18,9 +18,11 @@ from django.conf.urls import url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, logout_then_login, PasswordResetCompleteView, PasswordResetConfirmView, PasswordResetDoneView, PasswordResetView
+from django.urls import include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^registro/', include('apps.usuarios.urls')),
 
     #Recuperacion de Email
     url(r'^password_reset/', PasswordResetView.as_view(), name='password_reset'),
