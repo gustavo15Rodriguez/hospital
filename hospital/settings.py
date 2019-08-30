@@ -12,7 +12,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+from django.urls import reverse_lazy
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -27,6 +31,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'oscarpruebadjango@gmail.com'
+EMAIL_HOST_PASSWORD = 'pr0b@rdj@ng0'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Application definition
 
@@ -52,6 +62,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'hospital.urls'
+
+#LOGIN_REDIRECT_URL = reverse_lazy('')
+LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
 TEMPLATES = [
     {
@@ -127,7 +140,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_env', 'static_root')
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_env', 'media_root')
+STATIC_ROOT = os.path.join(os.path.basename(BASE_DIR), 'static_env', 'static_root')
+MEDIA_ROOT = os.path.join(os.path.basename(BASE_DIR), 'static_env', 'media_root')

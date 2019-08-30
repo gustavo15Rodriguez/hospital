@@ -2,7 +2,7 @@ from django.db import models
 
 class Diagnostico(models.Model):
     id_diagnostico = models.AutoField(primary_key=True)
-    descripcion = models.CharField(max_length=4 0)
+    descripcion = models.CharField(max_length=40)
 
     def __str__(self):
         return '{}'.format(self.descripcion)
