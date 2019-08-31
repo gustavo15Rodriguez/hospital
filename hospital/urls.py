@@ -23,6 +23,9 @@ from django.urls import include
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^registro/', include('apps.usuarios.urls')),
+    url(r'^administracion/', include('apps.administracion.urls')),
+    url(r'^doctores/', include('apps.doctores.urls')),
+    url(r'^pacientes/', include('apps.pacientes.urls')),
     url(r'^home/', include('apps.principal.urls')),
 
     #Recuperacion de Email
