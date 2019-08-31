@@ -1,0 +1,48 @@
+{% extends "base/funciones.html" %}
+
+{% block content %}
+    <br>
+    <div class="container">
+        {% if object_list %}
+            <h3 class="text-center">Listar plantas</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Numero de camas</th>
+                        <th scope="col">Cama</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+            {% for planta in object_list %}
+                <tbody>
+                    <tr class="table-light">
+                        <td>{{ planta.id_planta }}</td>
+                        <td>{{ planta.nombre }}</td>
+                        <td>{{ planta.numero_camas }}</td>
+                        <td>{{ planta.cama }}</td>
+                        <td>
+                            <a href="{% url 'planta_editar' planta.id_planta %}" class="btn btn-success">Editar</a>
+                            <a href="{% url 'planta_eliminar' planta.id_planta %}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            {% endfor %}
+            </table>
+        {% else %}
+        <div class="container">
+            <h3>Aun no hay plantas registradas</h3>
+            <a href="{% url 'planta_crear' %}" class="btn btn-primary">Agregar plantas</a>
+        </div>
+        <br>
+        {% endif %}
+    </div>
+
+    <div class="container">
+        {% if object_list %}
+            <a href="{% url 'reporte_planta_pdf' %}" class="btn btn-info">Generar reporte → </a>
+        {% endif %}
+    </div>
+
+{% endblock content %}

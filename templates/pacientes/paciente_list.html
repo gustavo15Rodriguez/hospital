@@ -1,0 +1,52 @@
+{% extends "base/funciones.html" %}
+
+{% block content %}
+    <br>
+    <div class="container-fluid">
+        {% if object_list %}
+            <h3 class="text-center">Listar pacientes</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">N. Docuemento</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Direccion</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Historia clinica</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+            {% for paciente in object_list %}
+                <tbody>
+                    <tr class="table-light">
+                        <td>{{ paciente.numero_documento }}</td>
+                        <td>{{ paciente.nombre }}</td>
+                        <td>{{ paciente.apellidos }}</td>
+                        <td>{{ paciente.direccion_recidencia }}</td>
+                        <td>{{ paciente.telefono_recidencia }}</td>
+                        <td>{{ paciente.historia_clinica }}</td>
+                        <td>
+                            <a href="{% url 'paciente_editar' paciente.id_paciente %}" class="btn btn-success">Editar</a>
+                            <a href="{% url 'paciente_eliminar' paciente.id_paciente %}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            {% endfor %}
+            </table>
+        {% else %}
+        <div class="container-fluid">
+            <h3>Aun no hay pacientes registrados</h3>
+            <a href="{% url 'paciente_crear' %}" class="btn btn-primary">Agregar pacientes</a>
+        </div>
+        <br>
+    {% endif %}
+    </div>
+
+    <div class="container-fluid">
+        {% if object_list %}
+            <a href="{% url 'reporte_paciente_pdf' %}" class="btn btn-info">Generar reporte → </a>
+        {% endif %}
+    </div>
+
+{% endblock content %}

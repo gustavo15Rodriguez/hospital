@@ -4,11 +4,10 @@ from apps.doctores.models import Medico, Diagnostico, HistoriaClinica
 class TarjetaVisita(models.Model):
     id_tarjeta = models.AutoField(primary_key=True)
     numero_tarjeta = models.CharField(max_length=40)
-    hora_comienzo = models.CharField(max_length=40)
+    hora_comienzo = models.DateTimeField()
 
     def __str__(self):
         return '{}'.format(self.numero_tarjeta)
-
 
 class Paciente(models.Model):
     id_paciente = models.AutoField(primary_key=True)
@@ -24,6 +23,6 @@ class Paciente(models.Model):
     historia_clinica = models.ForeignKey(HistoriaClinica, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
-        return '{}{}'.format(self.nombre, self.apellidos)
+        return '{} {}'.format(self.nombre, self.apellidos)
 
 

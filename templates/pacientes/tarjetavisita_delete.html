@@ -1,0 +1,13 @@
+{% extends "base/funciones.html" %}
+
+{% block content %}
+    <div class="container">
+        <form method="post">{% csrf_token %}
+            <h3>Eliminar tarjetas de visitas</h3>
+            <br>
+            <p>Realmente desea eliminar la tarjeta No. {{ object.numero_tarjeta }}?</p>
+            <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
+            <a href="{% url 'tarjetavisita_listar' %}" class="btn btn-success">Cancelar</a>
+        </form>
+    </div>
+{% endblock content %}

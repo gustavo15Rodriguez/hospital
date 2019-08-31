@@ -1,0 +1,13 @@
+{% extends "base/funciones.html" %}
+
+{% block content %}
+    <div class="container">
+        <form method="post">{% csrf_token %}
+            <h3 class="text-center">Historias clinicas</h3>
+            <br>
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{% url 'historiaclinica_listar' %}" class="btn btn-success">Listar historias clinicas</a>
+        </form>
+    </div>
+{% endblock content %}

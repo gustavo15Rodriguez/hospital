@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from apps.administracion.forms import CamaForm, PlantaForm
 from apps.administracion.models import Cama, Planta
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView
 from django.urls import reverse_lazy

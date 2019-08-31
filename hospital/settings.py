@@ -65,7 +65,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'hospital.urls'
 
-#LOGIN_REDIRECT_URL = reverse_lazy('')
+LOGIN_REDIRECT_URL = reverse_lazy('paciente_listar')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
 TEMPLATES = [

@@ -1,0 +1,13 @@
+{% extends "base/funciones.html" %}
+
+{% block content %}
+    <div class="container">
+        <form method="post">{% csrf_token %}
+            <h3 class="text-center">Pacientes</h3>
+            <br>
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{% url 'paciente_listar' %}" class="btn btn-success">Listar pacientes agregados</a>
+        </form>
+    </div>
+{% endblock content %}

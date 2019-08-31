@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView
+
+from apps.doctores.forms import MedicoForm, DiagnosticoForm, HistoriaClinicaForm
 from apps.doctores.models import Diagnostico, Medico, HistoriaClinica
 from django.urls import reverse_lazy
 

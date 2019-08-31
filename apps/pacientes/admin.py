@@ -1,3 +1,5 @@
 from django.contrib import admin
+from apps.pacientes.models import Paciente, TarjetaVisita
 
-# Register your models here.
+admin.site.register(Paciente)
+admin.site.register(TarjetaVisita)

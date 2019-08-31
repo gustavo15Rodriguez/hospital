@@ -1,0 +1,46 @@
+{% extends "base/funciones.html" %}
+
+{% block content %}
+    <br>
+    <div class="container">
+        {% if object_list %}
+            <h3 class="text-center">Listar tarjetas</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Numero de tarjeta</th>
+                        <th scope="col">Hora incio</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+            {% for tarjeta in object_list %}
+                <tbody>
+                    <tr class="table-light">
+                        <td>{{ tarjeta.id_tarjeta }}</td>
+                        <td>{{ tarjeta.numero_tarjeta }}</td>
+                        <td>{{ tarjeta.hora_comienzo }}</td>
+                        <td>
+                            <a href="{% url 'tarjeta_editar' tarjeta.id_tarjeta %}" class="btn btn-success">Editar</a>
+                            <a href="{% url 'tarjeta_eliminar' tarjeta.id_tarjeta %}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            {% endfor %}
+            </table>
+        {% else %}
+        <div class="container">
+            <h3>Aun no hay tarjetas registradas</h3>
+            <a href="{% url 'tarjeta_crear' %}" class="btn btn-primary">Agregar tarjetas</a>
+        </div>
+        <br>
+    {% endif %}
+    </div>
+
+    <div class="container">
+        {% if object_list %}
+            <a href="{% url 'reporte_tarjeta_pdf' %}" class="btn btn-info">Generar reporte → </a>
+        {% endif %}
+    </div>
+
+{% endblock content %}

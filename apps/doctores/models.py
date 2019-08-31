@@ -7,14 +7,12 @@ class Diagnostico(models.Model):
     def __str__(self):
         return '{}'.format(self.descripcion)
 
-
 class HistoriaClinica(models.Model):
     id_historia = models.AutoField(primary_key=True)
     descripcion = models.CharField(max_length=40)
 
     def __str__(self):
         return '{}'.format(self.descripcion)
-
 
 class Medico(models.Model):
     id_medico = models.AutoField(primary_key=True)
