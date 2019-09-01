@@ -25,4 +25,7 @@ class Paciente(models.Model):
     def __str__(self):
         return '{} {}'.format(self.nombre, self.apellidos)
 
-
+    class Meta:
+        permissions = {
+            ('is_paciente', _('Usuario Paciente')),
+        }

@@ -14,3 +14,8 @@ class Planta(models.Model):
 
     def __str__(self):
         return '{}'.format(self.nombre)
+
+    class Meta:
+        permissions = {
+            ('is_administrador', _('Usuario Administrador')),
+        }
