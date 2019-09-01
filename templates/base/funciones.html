@@ -15,7 +15,7 @@
     
   {% include 'base/navbar_funciones.html' %}
 
-    <section class="hero-wrap hero-wrap-2 d-flex" style="background-image: url({% static 'images/funciones.jpg' %});" id="home">
+    <section class="hero-wrap hero-wrap-2 d-flex" style="background-image: url({% static 'images/principal.jpg' %});" id="home">
     	<div class="overlay"></div>
     	<div class="container">
     		<div class="row d-flex align-items-center">
@@ -39,38 +39,35 @@
           </div>
         </div>
     		<div class="row">
-    			{% if perms.soldado.is_dos %}
+
                     <div class="col-md-4">
     				    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/project-4.jpg' %});">
                             <div class="overlay"></div>
                                 <a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
                                 <div class="text text-center p-4">
-                                    <h3><a href="#">Añadir </a></h3>
+                                    <h3><a href="{% url 'planta_crear' %}">Añadir plantas</a></h3>
                                     <span>Nuestros servicios</span>
 	    				        </div>
     				        </div>
   				    </div>
-                {% endif %}
 
-                {% if perms.cuartel.is_uno %}
                     <div class="col-md-8">
                         <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/project-5.jpg' %});">
                             <div class="overlay"></div>
                             <a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
                             <div class="text text-center p-4">
-                                <h3><a href="#">Añadir </a></h3>
+                                <h3><a href="{% url 'medico_crear' %}">Añadir medicos</a></h3>
                                 <span>Nuestros servicios</span>
                             </div>
                         </div>
                     </div>
-                {% endif %}
 
     			<div class="col-md-8">
     				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/project-1.jpg' %});">
     					<div class="overlay"></div>
     					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
 	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Añadir </a></h3>
+	    					<h3><a href="{% url 'diagnostico_crear' %}">Añadir diagnosticos hospitalarios</a></h3>
 	    					<span>Nuestros servicios</span>
 	    				</div>
     				</div>
@@ -79,7 +76,7 @@
     					<div class="overlay"></div>
     					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
 	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Añadir </a></h3>
+	    					<h3><a href="{% url 'historiaclinica_crear' %}">Añadir historias clinicas</a></h3>
 	    					<span>Nuestros servicios</span>
 	    				</div>
     				</div>
@@ -91,15 +88,24 @@
 		    					<div class="overlay"></div>
 		    					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
 			    				<div class="text text-center p-4">
-			    					<<h3><a href="#">Añadir </a></h3>
+			    					<h3><a href="{% url 'paciente_crear' %}">Añadir pacientes</a></h3>
 			    					<span>Nuestros servicios</span>
 			    				</div>
 		    				</div>
 	    				</div>
-
     				</div>
+                    <div class="row">
+                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/project-4.jpg' %});">
+                        <div class="overlay"></div>
+                        <a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
+                        <div class="text text-center p-4">
+                            <h3><a href="{% url 'tarjetavisita_crear' %}">Añadir tarjetas de visita</a></h3>
+                            <span>Nuestros servicios</span>
+                        </div>
+                    </div>
+                </div>
     			</div>
-    		</div>
+            </div>
     	</div>
     </section>
 

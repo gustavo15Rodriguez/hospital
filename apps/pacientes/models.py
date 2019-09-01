@@ -1,5 +1,6 @@
 from django.db import models
 from apps.doctores.models import Medico, Diagnostico, HistoriaClinica
+from django.utils.translation import ugettext as _
 
 class TarjetaVisita(models.Model):
     id_tarjeta = models.AutoField(primary_key=True)
@@ -15,7 +16,7 @@ class Paciente(models.Model):
     nombre = models.CharField(max_length=40)
     apellidos = models.CharField(max_length=40)
     direccion_recidencia = models.CharField(max_length=40)
-    telefono_recidencia = models.IntegerField()
+    telefono_recidencia = models.CharField(max_length=12)
     fecha_nacimiento = models.CharField(max_length=40)
     tarjeta_paciente = models.ForeignKey(TarjetaVisita,on_delete=models.CASCADE, blank=True, null=True)
     doctor = models.ForeignKey(Medico, on_delete=models.CASCADE, blank=True, null=True)

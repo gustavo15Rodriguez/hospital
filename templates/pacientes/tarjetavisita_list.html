@@ -21,8 +21,8 @@
                         <td>{{ tarjeta.numero_tarjeta }}</td>
                         <td>{{ tarjeta.hora_comienzo }}</td>
                         <td>
-                            <a href="{% url 'tarjeta_editar' tarjeta.id_tarjeta %}" class="btn btn-success">Editar</a>
-                            <a href="{% url 'tarjeta_eliminar' tarjeta.id_tarjeta %}" class="btn btn-danger">Eliminar</a>
+                            <a href="{% url 'tarjetavisita_editar' tarjeta.id_tarjeta %}" class="btn btn-success">Editar</a>
+                            <a href="{% url 'tarjetavisita_eliminar' tarjeta.id_tarjeta %}" class="btn btn-danger">Eliminar</a>
                         </td>
                     </tr>
                 </tbody>
@@ -31,7 +31,7 @@
         {% else %}
         <div class="container">
             <h3>Aun no hay tarjetas registradas</h3>
-            <a href="{% url 'tarjeta_crear' %}" class="btn btn-primary">Agregar tarjetas</a>
+            <a href="{% url 'tarjetavisita_crear' %}" class="btn btn-primary">Agregar tarjetas</a>
         </div>
         <br>
     {% endif %}
